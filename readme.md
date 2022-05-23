@@ -47,13 +47,18 @@ We have to create the _signup_ feature - the goal is to enable our users to regi
 - **username**: must be unique in our application, and will identify each user
 - **password**: must be encrypted (you can use the `bcryptjs` npm package).
 
-To complete this first iteration, you have to create the model as well as corresponding routes, and the views.
+To complete this first iteration, you have to create the model as well as corresponding routes.
 
 ## Iteration 2 | Login
 
-Once the user has signed up, he/she should be able to authenticate themselves. This means the user should be able to login to the application. Your assignment in this iteration is to create corresponding routes as well as the views to let them log in to the application.
+Once the user has signed up, they should be able to authenticate themselves.
+This means the user should be able to log into the application.
+Your assignment in this iteration is to create corresponding routes to let them log into the application.
 
-As you know, it is not enough just to allow users to login. Users should be able to maintain their "presence" in the application (stay logged in when going from a page to a page, after the refresh), and for that, there should be the user(s) in the session. You have learned that you can use the `express-session` and `connect-mongo` npm packages to create a session.
+As you know, it is not enough just to allow users to log in.
+Users should be able to maintain their "presence" in the application.
+For this we need to send them a token for future requests.
+You have learned that you can use the `jwt` npm packages to create a JWT.
 
 ## Iteration 3 | Protected Routes
 
@@ -64,7 +69,8 @@ Let's create two different routes protected by authentication:
 - `/main` - Add a funny picture of a cat and a link back to the home page
 - `/private` - Add your favorite `gif` and an `<h1>` denoting the page as private.
 
-Create the views and the custom authentication middleware function. Once created, use the middleware and protect the routes to prevent access to users who are not being authenticated.
+Create the custom authentication middleware function.
+Once created, use the middleware and protect the routes to prevent access from unauthenticated users.
 
 ## Bonus | The validation
 
@@ -75,20 +81,11 @@ You should handle validation errors when a user signs up:
 - The fields can't be empty.
 - The username can't be repeated.
 
-### Bonus | Validation during the login process
+### Validation during the login process
 
-You should check if all the fields are correctly filled before authenticating the user.
+If there is a problem with the data submitted to the API, indicate to the user what they must do.
 
-### Frontend validation
+For instance:
 
-Let's add validations to our forms. Remember we have two different forms: sign up and log in.
-
-Remember, when a user signs up or logs in, both the username and password fields must be filled in.
-
-Check out the [documentation](https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/Data_form_validation) at MDN. See if you can find a _constraint_ that requires the user to fill a field before submission.
-
-## Extra Resources
-
-- [HTML5 Form Validations](http://www.the-art-of-web.com/html/html5-form-validation/)
-
-**Happy coding!** :heart:
+- has the password met the length requirements?
+- have the credentials not matched?
