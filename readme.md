@@ -58,7 +58,7 @@ Your assignment in this iteration is to create corresponding routes to let them 
 As you know, it is not enough just to allow users to log in.
 Users should be able to maintain their "presence" in the application.
 For this we need to send them a token for future requests.
-You have learned that you can use the `jwt` npm packages to create a JWT.
+You have learned that you can use the `jsonwebtoken` npm packages to create a JWT.
 
 ## Iteration 3 | Protected Routes
 
