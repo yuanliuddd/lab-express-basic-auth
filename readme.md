@@ -66,8 +66,8 @@ At this point, you have implemented the basic authentication in this application
 
 Let's create two different routes protected by authentication:
 
-- `/main` - Add a funny picture of a cat and a link back to the home page
-- `/private` - Add your favorite `gif` and an `<h1>` denoting the page as private.
+- `/main` - Send a funny picture of a cat. Either send a link in a JSON response, or use `res.sendFile()` to send an HTML file which shows the image.
+- `/private` - Send your favorite `gif` and indicate that the route is private, either with a JSON field or in an HTML `<h1>`.
 
 Create the custom authentication middleware function.
 Once created, use the middleware and protect the routes to prevent access from unauthenticated users.
