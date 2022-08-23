@@ -1,12 +1,19 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the user model to whatever makes sense in this case
 const userSchema = new Schema({
   username: {
-    type: String,
-    unique: true
+    type: Schema.Types.String,
+    unique: true,
+    required: true,
+    lowercase: true,
+    trim: true,
+    validate: [validator.notEmpty, "Empty User Name"],
   },
-  password: String
+  passwordHashed: {
+    type: Schema.Types.String,
+    required: true,
+    validate: [validator.notEmpty, "Empty Password"],
+  },
 });
 
 const User = model("User", userSchema);
