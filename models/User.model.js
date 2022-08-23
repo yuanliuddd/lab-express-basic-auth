@@ -1,18 +1,23 @@
 const { Schema, model } = require("mongoose");
 
 const userSchema = new Schema({
-  username: {
+  userName: {
     type: Schema.Types.String,
     unique: true,
     required: true,
-    lowercase: true,
     trim: true,
-    validate: [validator.notEmpty, "Empty User Name"],
+    // validate: ["validator".notEmpty, "Empty User Name"],
   },
-  passwordHashed: {
+  password: {
     type: Schema.Types.String,
     required: true,
-    validate: [validator.notEmpty, "Empty Password"],
+  },
+  email: {
+    type: Schema.Types.String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true,
   },
 });
 

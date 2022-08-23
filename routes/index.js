@@ -6,6 +6,6 @@ router.get('/', (req, res, next) => {
   res.json({ success: true })
 })
 
-router.use("/user", userRoutes);
+router.use("/user",userRoutes)
 
 module.exports = router
